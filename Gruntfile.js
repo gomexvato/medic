@@ -10,18 +10,6 @@ const {
   TRAVIS_BUILD_NUMBER
 } = process.env;
 
-const APPCACHE_OPTIONS = {
-  patterns: [
-    'build/ddocs/medic/_attachments/manifest.json',
-    'build/ddocs/medic/_attachments/audio/**/*',
-    'build/ddocs/medic/_attachments/css/**/*',
-    'build/ddocs/medic/_attachments/fonts/**/*',
-    'build/ddocs/medic/_attachments/img/**/*',
-    'build/ddocs/medic/_attachments/js/**/*',
-    'build/ddocs/medic/_attachments/xslt/**/*',
-  ],
-};
-
 const releaseName = TRAVIS_TAG || TRAVIS_BRANCH || 'local-development';
 
 const couchConfig = (() => {
