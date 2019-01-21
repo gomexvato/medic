@@ -14,7 +14,7 @@ class BaseConfig {
       capabilities: {
         browserName: 'chrome',
         chromeOptions: {
-          args: ['--headless', '--disable-gpu', '--allow-insecure-localhost', '--window-size=1024,768']
+          args: ['--headless', '--disable-gpu', `--unsafely-treat-insecure-origin-as-secure=${utils.getOrigin()}`, '--window-size=1024,768']
         }
       },
       beforeLaunch: function() {

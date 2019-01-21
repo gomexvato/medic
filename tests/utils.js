@@ -507,6 +507,10 @@ module.exports = {
       constants.COUCH_PORT
     }/${constants.DB_NAME}`,
 
+  getOrigin: () =>
+    `http://${constants.API_HOST}:${constants.API_PORT}`,
+
+
   getBaseUrl: () =>
     `http://${constants.API_HOST}:${constants.API_PORT}/${
       constants.DB_NAME
