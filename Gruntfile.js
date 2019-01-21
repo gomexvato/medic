@@ -43,7 +43,7 @@ module.exports = function(grunt) {
     replace: 'grunt-text-replace',
     uglify: 'grunt-contrib-uglify-es',
   });
-  require('./grunt.service-worker')(grunt);
+  require('./grunt/service-worker')(grunt);
   require('time-grunt')(grunt);
 
   // Project configuration
