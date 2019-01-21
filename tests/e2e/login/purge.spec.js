@@ -175,6 +175,9 @@ describe('Purging on login', () => {
   beforeEach(utils.beforeEach);
   afterEach(() => {
     browser.getPageSource().then(x => console.log('After Purge Dump', x));
+    browser.manage().logs().get('browser').then(function(browserLog) {
+      console.log('log: ', browserLog);
+    });
     utils.afterEach();
   });
 
