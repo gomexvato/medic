@@ -173,7 +173,10 @@ describe('Purging on login', () => {
   });
 
   beforeEach(utils.beforeEach);
-  afterEach(utils.afterEach);
+  afterEach(() => {
+    browser.getPageSource().then(x => console.log('After Purge Dump', x));
+    utils.afterEach();
+  });
 
   it('Logging in as a restricted user with configured purge rules should perform a purge', () => {
     utils.resetBrowser();
