@@ -140,7 +140,7 @@
 
     translator.setLocale(userCtx.locale);
 
-    const onServiceWorkerInstalling = () => setUiStatus('LOAD_APP');
+    const onServiceWorkerInstalling = () => setUiStatus('DOWNLOAD_APP');
     const swRegistration = registerServiceWorker(onServiceWorkerInstalling);
 
     const localDbName = getLocalDbName(dbInfo, userCtx.name);

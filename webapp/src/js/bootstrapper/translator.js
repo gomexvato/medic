@@ -7,6 +7,7 @@ var TRANSLATIONS = {
     FETCH_INFO: function(x) {
       return 'Fetching info (' + x + ' docs)…';
     },
+    DOWNLOAD_APP: 'Downloading…',
     LOAD_APP: 'Loading app…',
     PURGE_INIT: 'Checking data…',
     PURGE_INFO: function(progress) {
