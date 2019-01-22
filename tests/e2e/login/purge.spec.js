@@ -172,13 +172,20 @@ describe('Purging on login', () => {
     .then(() => done()).catch(done.fail);
   });
 
-  beforeEach(utils.beforeEach);
+  const logAsString = log => `LOGENTRY-${log.level}-${log.timestamp}-${log.message}`;
+  const getLogs = () => browser.manage().logs()
+    .get('browser')
+    .then(logs => logs.filter(log => !log.message.startsWith('Translation ')).map(logAsString));
+  beforeEach(() => {
+    utils.beforeEach();
+    getLogs();
+  });
   afterEach(() => {
     browser.getPageSource().then(x => console.log('After Purge Dump', x));
-    browser.manage().logs().get('browser').then(function(browserLog) {
-      console.log('log: ', browserLog);
-    });
     utils.afterEach();
+    getLogs().then(newLogs => {
+      newLogs.forEach(x => console.log(x));
+    });
   });
 
   it('Logging in as a restricted user with configured purge rules should perform a purge', () => {
