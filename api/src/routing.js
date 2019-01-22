@@ -122,6 +122,7 @@ app.use(
           `'self'`,
           BUILDS_DB,
         ],
+        childSrc:  [`'self'`],
         formAction: [`'self'`],
         imgSrc: [
           `'self'`,
