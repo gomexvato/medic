@@ -155,7 +155,7 @@ const deleteAll = (except = []) => {
       ['translations', 'translations-backup', 'user-settings', 'info'].includes(
         doc.type
       ),
-    'serviceWorkerMeta',
+    'service-worker-meta',
     constants.USER_CONTACT_ID,
     'migration-log',
     'resources',

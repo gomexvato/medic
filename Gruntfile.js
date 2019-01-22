@@ -271,7 +271,7 @@ module.exports = function(grunt) {
         src: 'build/ddocs/medic/_attachments/css/*.css',
       },
     },
-    generateServiceWorker: {
+    generate-service-worker: {
       config: {
         rootUrl: 'APP_PREFIX',
         staticDirectoryPath: 'build/ddocs/medic/_attachments',
@@ -622,7 +622,7 @@ module.exports = function(grunt) {
         tasks: [
           'sass',
           'less:webapp',
-          'generateServiceWorker',
+          'generate-service-worker',
           'couch-compile:primary',
           'deploy',
         ],
@@ -632,7 +632,7 @@ module.exports = function(grunt) {
         tasks: [
           'browserify:webapp',
           'replace:update-app-constants',
-          'generateServiceWorker',
+          'generate-service-worker',
           'couch-compile:primary',
           'deploy',
         ],
@@ -644,7 +644,7 @@ module.exports = function(grunt) {
         ],
         tasks: [
           'ngtemplates:inboxApp',
-          'generateServiceWorker',
+          'generate-service-worker',
           'couch-compile:primary',
           'deploy',
         ],
@@ -653,7 +653,7 @@ module.exports = function(grunt) {
         files: 'webapp/src/templates/inbox.html',
         tasks: [
           'copy:inbox-file-attachment',
-          'generateServiceWorker',
+          'generate-service-worker',
           'couch-compile:primary',
           'deploy',
         ],
@@ -954,7 +954,7 @@ module.exports = function(grunt) {
   grunt.registerTask('build-ddoc', 'Build the main ddoc', [
     'couch-compile:secondary',
     'copy:ddoc-attachments',
-    'generateServiceWorker',
+    'generate-service-worker',
     'couch-compile:primary',
   ]);
 
