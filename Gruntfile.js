@@ -271,7 +271,7 @@ module.exports = function(grunt) {
         src: 'build/ddocs/medic/_attachments/css/*.css',
       },
     },
-    generate-service-worker: {
+    'generate-service-worker': {
       config: {
         rootUrl: 'APP_PREFIX',
         staticDirectoryPath: 'build/ddocs/medic/_attachments',
