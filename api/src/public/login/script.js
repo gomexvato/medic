@@ -45,6 +45,10 @@ var focusOnPassword = function(e) {
     e.preventDefault();
     document.getElementById('password').focus();
   }
+
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/service-worker.js');
+  }
 };
 
 var focusOnSubmit = function(e) {
