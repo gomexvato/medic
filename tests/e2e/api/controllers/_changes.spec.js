@@ -485,7 +485,20 @@ describe('changes handler', () => {
       req.end();
     });
 
-    beforeEach(done => getCurrentSeq().then(done));
+    const logAsString = log => `LOGENTRY-${log.level}-${log.timestamp}-${log.message}`;
+    const getLogs = () => browser.manage().logs()
+      .get('browser')	
+      .then(logs => logs.filter(log => !log.message.startsWith('Translation ')).map(logAsString));	
+    beforeEach(done => {	
+      getLogs();
+      getCurrentSeq().then(done);
+    });	
+    afterEach(() => {	
+      browser.getPageSource().then(x => console.log('After Test Dump', x));	
+      getLogs().then(newLogs => {	
+        newLogs.forEach(x => console.log('After Test Console', x));	
+      });	
+    });
 
     it('should successfully fully replicate (with or without limit)', () => {
       const allowedDocs = createSomeContacts(12, 'fixture:bobville');
