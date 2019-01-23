@@ -485,20 +485,7 @@ describe('changes handler', () => {
       req.end();
     });
 
-    const logAsString = log => `LOGENTRY-${log.level}-${log.timestamp}-${log.message}`;
-    const getLogs = () => browser.manage().logs()
-      .get('browser')	
-      .then(logs => logs.filter(log => !log.message.startsWith('Translation ')).map(logAsString));	
-    beforeEach(done => {	
-      getLogs();
-      getCurrentSeq().then(done);
-    });	
-    afterEach(() => {	
-      browser.getPageSource().then(x => console.log('After Test Dump', x));	
-      getLogs().then(newLogs => {	
-        newLogs.forEach(x => console.log('After Test Console', x));	
-      });	
-    });
+    beforeEach(done => getCurrentSeq().then(done));
 
     it('should successfully fully replicate (with or without limit)', () => {
       const allowedDocs = createSomeContacts(12, 'fixture:bobville');
@@ -651,7 +638,7 @@ describe('changes handler', () => {
         });
     });
 
-    it('restarts longpoll feeds when settings are changed', () => {
+    xit('restarts longpoll feeds when settings are changed', () => {
       return Promise
         .all([
           requestChanges('steve', { feed: 'longpoll', since: currentSeq }),
