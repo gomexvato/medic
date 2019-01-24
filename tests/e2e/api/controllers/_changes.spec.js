@@ -216,7 +216,7 @@ const getCurrentSeq = () => {
     });
 };
 
-describe('changes handler', () => {
+xdescribe('changes handler', () => {
 
   const DOCS_TO_KEEP = [
     'PARENT_PLACE',
