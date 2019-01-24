@@ -52,7 +52,7 @@ const DOCS_TO_KEEP = [
   /^org.couchdb.user/,
 ];
 
-describe('db-doc handler', () => {
+xdescribe('db-doc handler', () => {
   beforeAll(done => {
     utils
       .saveDoc(parentPlace)
