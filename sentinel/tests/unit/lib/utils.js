@@ -4,7 +4,7 @@ const should = require('chai').should(),
       registrationUtils = require('@medic/registration-utils'),
       taskUtils = require('@medic/task-utils'),
       config = require('../../../src/config'),
-      db = require('../../../src/db-pouch');
+      db = require('../../../src/db');
 
 describe('utils util', () => {
 
